@@ -13,13 +13,25 @@
         </div>
     </header>
     <form action="add" method="post">
-        {% for message in get_flashed_messages()%}
-            <p> {{message}} </p>
-        {% endfor %}
-        <br>
-        <input type="text" name="name_input">
-        <br>
-        <input type="submit" value="ADD" id="add" formaction="/">
+        <p>
+            <label for="name">Product name</label>
+            <input type="text" name="name"></input>
+        </p>
+        
+        <p>
+            <label for="quantity">Quantity</label>
+            <input type="number" name="quantity"></input>
+        </p>
+
+        <p>
+            <label for="size">Size</label>
+            <input type="text" name="size"></input>
+        </p>
+
+        <p>
+            <label for="exp_date">Expiration date</label>
+            <input type="text" name="exp_date"></input>
+        </p>
     </form>
 </body>
 </html>
