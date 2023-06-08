@@ -4,34 +4,53 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pantry!</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}"
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
 </head>
-<body>
-    <header class="navbar">
-        <div class="navbar__brand">
-            <img class="navbar__logo" src="/static/logo.svg" alt="Pantry Logo" />
+  <body>
+    <main class="main">
+    <header class="logo">
+        <div class="logo__brand">
+            <img class="logo__logo" src="/static/logo.svg" alt="Pantry Logo" />
         </div>
     </header>
-    <form action="add" method="post">
-        <p>
-            <label for="name">Product name</label>
-            <input type="text" name="name"></input>
-        </p>
-        
-        <p>
-            <label for="quantity">Quantity</label>
-            <input type="number" name="quantity"></input>
-        </p>
-
-        <p>
-            <label for="size">Size</label>
-            <input type="text" name="size"></input>
-        </p>
-
-        <p>
-            <label for="exp_date">Expiration date</label>
-            <input type="text" name="exp_date"></input>
-        </p>
-    </form>
-</body>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Quantity</th>
+          <th>Size</th>
+          <th>Exp_date</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for row in data %}
+        <tr>
+            <div class="items">
+          <td>{{ row[0] }}</td>
+          <td>{{ row[1] }}</td>
+          <td>{{ row[2] }}</td>
+          <td>{{ row[3] }}</td>
+          <td>
+           </div>
+           <div class="up">
+            <form action="/update" method="post">
+                <input type="text" name="product_name" value="{{ row[0] }}">
+                <input type="text" name="quantity" value="{{ row[1] }}">
+                <input type="text" name="size" value="{{ row[2] }}">
+                <input type="text" name="exp_date" value="{{ row[3] }}">
+                <input type="hidden" name="id" value="{{ row[4] }}">
+                <input type="submit" value="Update">
+            </form>
+            <form action="/delete" method="post">
+                <input type="hidden" name="id" value="{{ row[4] }}">
+                <input type="submit" value="Delete">
+            </form>
+          </td>
+        </div>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+</main>
+  </body>
 </html>
