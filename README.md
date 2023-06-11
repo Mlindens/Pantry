@@ -13,4 +13,10 @@ The Pantry Manager application is a Flask-based web application used to manage p
 
 * **Delete existing items**: Items can be removed from the pantry.
 
+## Technologies Used
+* Back-end: Flask (Python)
+* Database: PostgreSQL
+* Front-end: HTML, Bootstrap
+* Environment Variables: python-dotenv
+
 Live link will be available soon.
