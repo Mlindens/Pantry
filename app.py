@@ -8,7 +8,6 @@ load_dotenv()
 
 # Initialize flask
 app = Flask(__name__)
-app.secret_key = "mjuwamWAAW"
 
 # Get database connection URL from environment variables
 url = os.getenv("DATABASE_URL")
