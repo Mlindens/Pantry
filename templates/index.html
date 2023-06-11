@@ -1,0 +1,84 @@
+{% extends 'base.html' %}
+
+{% block title %} Home {% endblock %}
+
+{% block body %}
+    <div class="container mt-4">
+        <table class="table table-success table-striped table-hover" border="1">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Quantity</th>
+                    <th>Size</th>
+                    <th>Exp-date</th>
+                    <th colspan="2">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for row in data %}
+                    <tr>
+                        <td>{{ row[4] }}</td>
+                        <td>{{ row[0] }}</td>
+                        <td>{{ row[1] }}</td>
+                        <td>{{ row[2] }}</td>
+                        <td>{{ row[3] }}</td>
+                        <td>
+                            <a href="/update/{{ row[4] }}" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modal_edit{{ row[4] }}">Update</a>
+                            <a href="/delete/{{ row[4] }}" class="btn btn-danger">Delete</a>
+                        </td>
+                    </tr>
+
+    <div id="modal_edit{{ row[4] }}" class="modal fade" role="dialog">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title">Update Product</h4>
+          </div>
+         <div class="modal-body">
+
+            <form action="{{url_for('update')}}" method="POST">
+
+               <div class="form-group">
+                  <label>Name:</label>
+		           <input type="hidden"  name="id" value="{{ row[4] }}">
+                   <input type="text" class="form-control" name="product_name" value="{{ row[0] }}" >
+               </div>
+
+                <div class="form-group">
+                  <label>Quantity:</label>
+                  <input type="text" class="form-control" name="quantity" value="{{ row[1] }}">
+               </div>
+
+                 <div class="form-group">
+                  <label>Size:</label>
+                  <input type="text" class="form-control" name="size" value="{{ row[2] }}">
+               </div>
+
+                <div class="form-group">
+                  <label>Exp-date:</label>
+                  <input type="date" class="form-control" name="exp_date" value="{{ row[3] }}">
+               </div>
+
+               <div class="form-group">
+                  <button class="btn btn-primary mt-4" type="submit">Update Product</button>
+               </div>
+
+            </form>
+         </div>
+
+         <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+         </div>
+
+
+          </div>
+       </div>
+    </div>
+
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+{% endblock %}

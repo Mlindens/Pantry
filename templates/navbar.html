@@ -1,0 +1,58 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container">
+    <a class="navbar_brand" href="">
+      <img src="/static/logo.svg" alt="Pantry Logo" width="200" height="200" class="img-fluid">
+    </a>
+    <ul class="navbar-nav">
+      <li class="nav-item">
+      <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#insert_modal" >Add item</button>
+      </li>
+    </ul>
+  </div>
+
+</nav>
+
+<div id="insert_modal" class="modal fade" role="dialog">
+   <div class="modal-dialog">
+      <div class="modal-content">
+         <div class="modal-header">
+            <h4 class="modal-title">Add Product</h4>
+         </div>
+         <div class="modal-body">
+
+            <form action="{{url_for('add')}}" method="POST">
+
+               <div class="form-group">
+                  <label>Name:</label>
+                  <input type="text" class="form-control" name="product_name" required="1">
+               </div>
+
+               <div class="form-group">
+                  <label>Quantity:</label>
+                  <input type="text" class="form-control" name="quantity" required="1">
+               </div>
+
+               <div class="form-group">
+                  <label>Size:</label>
+                  <input type="text" class="form-control" name="size" required="1">
+               </div>
+
+               <div class="form-group">
+                  <label>Exp-date:</label>
+                  <input type="date" class="form-control" name="exp_date">
+               </div>
+
+               <div class="form-group">
+                  <button class="btn btn-primary mt-4" type="submit">Add Product</button>
+               </div>
+
+            </form>
+         </div>
+
+         <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+         </div>
+
+      </div>
+   </div>
+</div>
