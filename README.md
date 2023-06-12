@@ -21,4 +21,5 @@ The Pantry Manager application is a Flask-based web application used to manage p
 * Environment Variables: python-dotenv
 
 Please allow for up to 20 seconds for the live server to spin up and finish loading.
+
 Live link [here](https://pantry-web-app.onrender.com/)
