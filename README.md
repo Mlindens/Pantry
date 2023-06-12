@@ -1,7 +1,8 @@
 # Pantry Manager 
 The Pantry Manager application is a Flask-based web application used to manage pantry items. This application is connected to a PostgreSQL database to save/read all data.
 
-![Capture](https://github.com/Mlindens/Pantry/assets/83295029/57a33f13-4f14-4c26-a261-2c82cc3ecd9c)
+![Capture](https://github.com/Mlindens/Pantry/assets/83295029/0e685659-d659-4e8d-8a92-f1fb7df371c5)
+
 
 ## Features
 
